@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+
+<!-- tiles를 생성하는 설정 -->
+<tiles-definitions>
+
+<definition name="layouts-tiles" template="/WEB-INF/views/layout/layouts-tiles.jsp">
+	<put-attribute name="header" value="/WEB-INF/views/header_total.jsp"/>
+	<put-attribute name="left_menu" value=""/>
+	<put-attribute name="main" value=""/>
+	<put-attribute name="content" value="/WEB-INF/views/content.jsp"/>
+	<put-attribute name="footer" value=""/>
+</definition>
+
+
+  <definition name="idinfo" template="/WEB-INF/views/layout/layouts-tiles.jsp">
+	<put-attribute name="header" value="/WEB-INF/views/header_total.jsp"/>
+	<put-attribute name="left_menu" value=""/>
+	<put-attribute name="main" value=""/>
+	<put-attribute name="content" value="/WEB-INF/views/idinfo.jsp"/>
+	<put-attribute name="footer" value=""/>
+	</definition>
+	
+	
+	<definition name="login_page" template="/WEB-INF/views/layout/layouts-tiles.jsp">
+	<put-attribute name="header" value="/WEB-INF/views/header_total.jsp"/>
+	<put-attribute name="left_menu" value=""/>
+	<put-attribute name="main" value=""/>
+	<put-attribute name="content" value="/WEB-INF/views/login.jsp"/>
+	<put-attribute name="footer" value=""/>
+	</definition>
+	
+	
+	<definition name="loginok" template="/WEB-INF/views/layout/layouts-tiles.jsp">
+	<put-attribute name="header" value="/WEB-INF/views/header_total.jsp"/>
+	<put-attribute name="left_menu" value=""/>
+	<put-attribute name="main" value=""/>
+	<put-attribute name="content" value="/WEB-INF/views/loginok.jsp"/>
+	<put-attribute name="footer" value=""/>
+	</definition>
+	
+	<definition name="mypage" template="/WEB-INF/views/layout/mypage_tiles.jsp">
+	<put-attribute name="header" value="/WEB-INF/views/header_total.jsp"/>
+	<put-attribute name="left_menu" value="/WEB-INF/views/mypage_left_menu.jsp"/>
+	<put-attribute name="content" value="/WEB-INF/views/mypage.jsp"/>
+	<put-attribute name="main" value=""/>
+	<put-attribute name="footer" value=""/>
+	</definition>
+	
+	
+	<definition name="sign_up_form" template="/WEB-INF/views/layout/layouts-tiles.jsp">
+	<put-attribute name="header" value="/WEB-INF/views/header_total.jsp"/>
+	<put-attribute name="left_menu" value=""/>
+	<put-attribute name="content" value="/WEB-INF/views/sign_up_form.jsp"/>
+	<put-attribute name="main" value=""/>
+	<put-attribute name="footer" value=""/>
+	</definition>
+	
+	
+		
+	<definition name="item_detail" template="/WEB-INF/views/layout/layouts-tiles.jsp">
+	<put-attribute name="header" value="/WEB-INF/views/header_total.jsp"/>
+	<put-attribute name="left_menu" value=""/>
+	<put-attribute name="content" value="/WEB-INF/views/item_detail.jsp"/>
+	<put-attribute name="main" value=""/>
+	<put-attribute name="footer" value=""/>
+	</definition>
+	
+		
+	<definition name="order" template="/WEB-INF/views/layout/layouts-tiles.jsp">
+	<put-attribute name="header" value="/WEB-INF/views/header_total.jsp"/>
+	<put-attribute name="left_menu" value=""/>
+	<put-attribute name="content" value="/WEB-INF/views/order.jsp"/>
+	<put-attribute name="main" value=""/>
+	<put-attribute name="footer" value=""/>
+	</definition>
+	
+	
+	
+
+	
+	
+	
+</tiles-definitions>

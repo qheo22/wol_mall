@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mall">
+
+	<!-- 신규 아이템 등록 -->
+	<insert id="item_up" parameterType="com.mall.wol.model.MallitemDTO">
+		insert into
+		mall_item(item_name,item_info,item_kinds,item_path,item_price_consumer,item_price_sell,item_discount,item_size,item_color)
+		values(#{item_name},
+		#{item_info},
+		#{item_kinds},
+		#{item_path},
+		#{item_price_consumer},
+		#{item_price_sell},
+		#{item_discount},
+		#{item_size},
+		#{item_color})
+	</insert>
+	
+	<!-- 아이템 가져오기 -->
+	<select id="select_item" resultType="com.mall.wol.model.MallitemDTO" parameterType="object">
+		select * from mall_item where item_kinds = #{kinds} or item_code = #{item_code}
+	</select>
+	
+	
+	<!-- 아이디 비밀 확인후 로그인 -->
+	<select id="checkidpw" parameterType="map" resultType="String">
+	select user_id from mall_member where user_id=#{user_id} and password=#{password}
+	</select>
+	
+	
+	<!-- 회원가입중 아이디 / 이메일 체크 -->
+	<select id="check_id" parameterType="String" resultType="String">
+	select	user_id from mall_member where user_id =#{user_id}
+	</select>
+	
+	<select id="check_email" parameterType="String" resultType="String">
+	select email from mall_member where email =#{email}
+	</select>
+	
+	<!-- 로그인 되어있는 회원정보 가져오기 -->
+	<select id="select_userinfo" parameterType="String" resultType="com.mall.wol.model.Mall_MemberDTO">
+	select * from mall_member where user_id =#{user_id}
+	</select>
+	
+	
+	<!-- 회원가입 -->
+	<insert id="sign_up" parameterType="com.mall.wol.model.Mall_MemberDTO">
+		insert into mall_member
+		set user_id = #{user_id},
+			password = #{password},
+		    name = #{name},
+		    gender = #{gender},
+		    email = #{email},
+		    phone = #{phone},
+		    Mileage = '2000',
+		    grade = 'new',
+		    discount = '0',
+		    Benefits = '1'
+	</insert>
+	
+	
+	
+</mapper>
