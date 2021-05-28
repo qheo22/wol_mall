@@ -79,6 +79,15 @@ public class MainController {
         return "order";
     }
 
+
+
+    @GetMapping("/cart")
+    public String cart() {
+        return "cart";
+    }
+
+
+
     @GetMapping("/orderComplete")
     public String getOrder(@RequestParam(value = "id") int id
             ,Model model) {
