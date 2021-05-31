@@ -22,9 +22,12 @@
 <main class="container mt-5 mb-5">
 
   <div class="mt-5"></div>
+  <#if accessor!?has_content>
   <div class="d-flex">
-  <div class="ms-auto">방문자수 ${accessor}</div>
+    <div class="ms-auto">방문자수 ${accessor}</div>
   </div>
+  <#else>
+  </#if>
 
   <#if randomGoods?has_content>
 

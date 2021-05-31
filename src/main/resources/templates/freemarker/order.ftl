@@ -238,7 +238,13 @@
 
             // TODO :: PAYPAL 결제 테스트용
             if (confirm("결제하시겠습니까?") == true) {    //확인
-                // 성공 처
+                // 성공 처리
+                for (let j = 0; j < $(".product_list").children("li").length; j++) {
+                    if ( $(".product_list").find(".option_num")[j].value <= 0) {
+                        alert("주문하신 수량이 맞지 않습니다");
+                        return false;
+                    }
+                }
                 requestOrderComplete();
             } else {
                 // 실패 처리

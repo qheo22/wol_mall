@@ -135,7 +135,12 @@
                 console.log($(this).val()); //value값 가져오기
                 console.log($("select[name=sizeSelector] option:selected").text()); //text값 가져오기
                 size = $(this).val();
-                firstSelect = true;
+                if($("select[name=sizeSelector] option:selected").val() == "*"){
+                    firstSelect = false;
+                }else{
+                    firstSelect = true;
+                }
+
             });
 
             //색상값 가져오기
@@ -226,26 +231,31 @@
             if (itemExist === false) {
                 alert("선택하신 아이템이 없습니다");
                 return false;
-            } else {
-                let orderArray = new Array();
-
-                for (let j = 0; j < $(".total_list").children("li").length; j++) {
-                    orderArray[j] = {
-                        "goodsId": id,
-                        "goodsImg": $(".img-box").attr("src"),
-                        "goodsPrice": $(".sale").children("em").text(),
-                        "goodsName": $(".name").text(),
-                        "size": $(".total_list").find(".option_prod .size")[j].innerText,
-                        "color": $(".total_list").find(".option_prod .color")[j].innerText,
-                        "itemCount": $(".total_list").find(".option_num ")[j].value,
-                        "itemPrice": $(".total_list").find(".option_price strong")[j].innerText,
-                    }
-                }
-                let stringJSON = JSON.stringify(orderArray)
-                sessionStorage.setItem("items", stringJSON);
             }
+            for (let j = 0; j < $(".total_list").children("li").length; j++) {
+                if ($(".total_list").find(".option_num ")[j].value <= 0) {
+                    alert("주문하신 수량이 맞지 않습니다");
+                    return false;
+                } else {
+                    let orderArray = new Array();
+                    for (let j = 0; j < $(".total_list").children("li").length; j++) {
+                        orderArray[j] = {
+                            "goodsId": id,
+                            "goodsImg": $(".img-box").attr("src"),
+                            "goodsPrice": $(".sale").children("em").text(),
+                            "goodsName": $(".name").text(),
+                            "size": $(".total_list").find(".option_prod .size")[j].innerText,
+                            "color": $(".total_list").find(".option_prod .color")[j].innerText,
+                            "itemCount": $(".total_list").find(".option_num ")[j].value,
+                            "itemPrice": $(".total_list").find(".option_price strong")[j].innerText,
+                        }
+                    }
+                    let stringJSON = JSON.stringify(orderArray)
+                    sessionStorage.setItem("items", stringJSON);
+                    location.href = "/order";
+                }
 
-            location.href = "/order";
+            }
         }
 
         function countCheck(view) {
