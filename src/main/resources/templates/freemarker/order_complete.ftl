@@ -138,7 +138,6 @@
     <script>
 
         $(document).ready(function () {
-
             let totalPrice = 0;
             for (let i = 0; i < $(".product_list").children("li").length; i++) {
                 let priceText = $(".product_list").find(".total_price2")[i].children[0].innerText;

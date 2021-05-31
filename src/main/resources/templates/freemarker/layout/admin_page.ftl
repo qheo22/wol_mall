@@ -65,9 +65,11 @@
             </div>
         </footer>
         <!-- Footer End -->
-    <script type="text/javascript">
-
-    </script>
+  <script type="text/javascript">
+      $(document).ready(function () {
+          sessionStorage.clear();
+      });
+  </script>
     <@script/>
     </body>
     </html>

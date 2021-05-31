@@ -292,6 +292,7 @@
         }
 
         function itemCartAdd(id) {
+            sessionStorage.clear();
             if (localStorage.length === 0) {
                 for (let i = 0; i < $(".total_list").children("li").length; i++) {
                     let item = {
@@ -306,6 +307,11 @@
                     }
                     let stringJSON = JSON.stringify(item)
                     localStorage.setItem("cartItem_" + i, stringJSON);
+                }
+                if (confirm("장바구니로 이동하시겠습니까??") == true) {
+                    location.href = "cart";
+                } else {
+                    return false;
                 }
             } else {
                 for (let i = 0; i < $(".total_list").children("li").length; i++) {
