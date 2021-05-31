@@ -20,9 +20,14 @@
 
 
 <main class="container mt-5 mb-5">
+
   <div class="mt-5"></div>
+  <div class="d-flex">
+  <div class="ms-auto">방문자수 ${accessor}</div>
+  </div>
 
   <#if randomGoods?has_content>
+
     <div class="card text-white w-50 h-50 offset-md-3">
       <a class="text-white" href="javascript:getGoodsDetailInfo(${randomGoods.getId()})">
         <img src="${s3BaseUrl}${randomGoods.getImgUrl()}" class="card-img" alt="...">
