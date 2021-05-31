@@ -66,7 +66,7 @@
 
                 <div class="btn_wrap">
                     <a class="btn btn_buy buy_now mb-2" onclick="onClickCart(${goods.getId()})">
-                        장바 구니 담기
+                        장바구니 담기
                     </a>
                 </div>
 
