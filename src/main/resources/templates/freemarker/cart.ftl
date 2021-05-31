@@ -37,7 +37,7 @@
         <div class="text-center col-md-12">
             <h1 class="mb-5">장바구니가 비었습니다.</h1>
             <div class="btn type02 buy_now" onclick="mainpage()">
-                <i></i>구매하로 가기
+                <i></i>구매하러 가기
             </div>
         </div>
     </div>
