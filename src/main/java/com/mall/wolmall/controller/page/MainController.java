@@ -52,8 +52,6 @@ public class MainController {
             totalAccessor = mainService.selectTotalCnt();
         }
 
-        System.out.println("방문자수 3되야정상"+totalAccessor);
-
        String totalAccessorText =  Integer.toString(totalAccessor);
 
         int randomvalue;

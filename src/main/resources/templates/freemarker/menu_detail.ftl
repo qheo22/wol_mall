@@ -236,26 +236,25 @@
                 if ($(".total_list").find(".option_num ")[j].value <= 0) {
                     alert("주문하신 수량이 맞지 않습니다");
                     return false;
-                } else {
-                    let orderArray = new Array();
-                    for (let j = 0; j < $(".total_list").children("li").length; j++) {
-                        orderArray[j] = {
-                            "goodsId": id,
-                            "goodsImg": $(".img-box").attr("src"),
-                            "goodsPrice": $(".sale").children("em").text(),
-                            "goodsName": $(".name").text(),
-                            "size": $(".total_list").find(".option_prod .size")[j].innerText,
-                            "color": $(".total_list").find(".option_prod .color")[j].innerText,
-                            "itemCount": $(".total_list").find(".option_num ")[j].value,
-                            "itemPrice": $(".total_list").find(".option_price strong")[j].innerText,
-                        }
-                    }
-                    let stringJSON = JSON.stringify(orderArray)
-                    sessionStorage.setItem("items", stringJSON);
-                    location.href = "/order";
                 }
-
             }
+            let orderArray = new Array();
+            for (let j = 0; j < $(".total_list").children("li").length; j++) {
+                orderArray[j] = {
+                    "goodsId": id,
+                    "goodsImg": $(".img-box").attr("src"),
+                    "goodsPrice": $(".sale").children("em").text(),
+                    "goodsName": $(".name").text(),
+                    "size": $(".total_list").find(".option_prod .size")[j].innerText,
+                    "color": $(".total_list").find(".option_prod .color")[j].innerText,
+                    "itemCount": $(".total_list").find(".option_num ")[j].value,
+                    "itemPrice": $(".total_list").find(".option_price strong")[j].innerText,
+                }
+            }
+            let stringJSON = JSON.stringify(orderArray)
+            sessionStorage.setItem("items", stringJSON);
+            location.href = "/order";
+
         }
 
         function countCheck(view) {
@@ -292,12 +291,19 @@
                 alert("선택하신 아이템이 없습니다");
                 return false;
             } else {
-                if (confirm("이 목록을 장바구니에 담겠습니까??") == true) {    //확인
-                    // 성공 처리
-                    itemCartAdd(id);
-                } else {
-                    return false;
-                }
+                if (confirm("이 목록을 장바구니에 담겠습니까??") == true) {//확인
+                    for (let j = 0; j <  $(".total_list").children("li").length; j++) {
+                        if ($(".total_list").find(".option_num")[j].value <= 0) {
+                            alert("주문하신 수량이 맞지 않습니다");
+                            return false;
+                        }
+                    }
+                        // 성공 처리
+                        itemCartAdd(id);
+                    } else {
+                        return false;
+                    }
+
             }
         }
 
@@ -305,6 +311,7 @@
             sessionStorage.clear();
             if (localStorage.length === 0) {
                 for (let i = 0; i < $(".total_list").children("li").length; i++) {
+
                     let item = {
                         "goodsId": id,
                         "goodsImg": $(".img-box").attr("src"),
